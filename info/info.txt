@@ -1,0 +1,21 @@
+/* tutorial for the development of this project starts here */
+1. http://bitoftech.net/2014/06/01/token-based-authentication-asp-net-web-api-2-owin-asp-net-identity/
+for implementation of web api, owin, identity
+
+2. http://bitoftech.net/2014/08/11/asp-net-web-api-2-external-logins-social-logins-facebook-google-angularjs-app/
+for implementation of external authentication like google
+Completed step 7
+
+3. understanding the process
+https://stackoverflow.com/questions/33727404/implementing-external-authentication-for-mobile-app-in-asp-net-webapi-2
+
+/* tutorial for the development of this project starts here */
+
+/* Google OAuth Client Id starts here */
+account: developersamim
+
+client ID: 350744969575-8m7nefq8s533ag9qieum678tsh6g4f84.apps.googleusercontent.com
+client secret: ZUn91bGaRW6dD_ooKnkAaACH
+/* Google OAuth Client Id ends here */
+
+
