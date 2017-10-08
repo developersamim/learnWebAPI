@@ -14,6 +14,7 @@ namespace Empower.Controllers
     {
 
         private Users users;
+        private string username;
 
         public UsersController()
         {
