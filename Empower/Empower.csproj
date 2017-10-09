@@ -207,6 +207,7 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\DTO.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Global.asax.cs">

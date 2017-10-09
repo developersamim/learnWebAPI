@@ -17,5 +17,12 @@ namespace Empower.Models
         public int? parentId { get; set; }
         public virtual Category parent { get; set; }
         public virtual ICollection<Category> children { get; set; }
+
+        public Category(string name, int parentId)
+        {
+            this.name = name;
+            this.parentId = parentId;
+        }
+        public Category() { }
     }
 }

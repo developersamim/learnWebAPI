@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Empower.DTO;
+using Newtonsoft.Json;
 
 namespace Empower.Controllers
 {
@@ -12,21 +14,31 @@ namespace Empower.Controllers
     public class CategoryController : ApiController
     {
         // GET api/<controller>
-        public IEnumerable<Category> Get()
+        public IHttpActionResult Get()
         {
             CategoryRepository categoryRepository = new CategoryRepository();
-            return categoryRepository.getAll();
+            var result = categoryRepository.getAll();
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(result, Formatting.Indented,
+            new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+            return Ok(json);
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            CategoryRepository categoryRepository = new CategoryRepository();
+            var result = categoryRepository.get(id);
+            return Ok(result);
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post(CategoryDTO dto)
         {
+            CategoryRepository categoryRepository = new CategoryRepository();
+            return Ok(categoryRepository.add(dto));
         }
 
         // PUT api/<controller>/5
