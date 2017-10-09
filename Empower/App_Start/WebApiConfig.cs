@@ -22,8 +22,19 @@ namespace Empower
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
-            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            //var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            //jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+
+
+            // 10 october added
+            // This code sets the JSON formatter to preserve object references, and removes the XML formatter from the pipeline entirely.
+            // A media-type formatter is an object that serializes your data when Web API writes the HTTP response body
+            // he built-in formatters support JSON and XML output. By default, both of these formatters serialize all objects by value.
+            // Serialization by value creates a problem if an object graph contains circular references
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
     }
 }

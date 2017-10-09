@@ -18,12 +18,7 @@ namespace Empower.Controllers
         {
             CategoryRepository categoryRepository = new CategoryRepository();
             var result = categoryRepository.getAll();
-            var json = Newtonsoft.Json.JsonConvert.SerializeObject(result, Formatting.Indented,
-            new JsonSerializerSettings
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            });
-            return Ok(json);
+            return Ok(result);
         }
 
         // GET api/<controller>/5
@@ -42,13 +37,40 @@ namespace Empower.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put(int id, [FromBody]Category category)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != category.id)
+            {
+                return BadRequest();
+            }
+            CategoryRepository categoryRepository = new CategoryRepository();
+            if (!categoryRepository.keyExists(id))
+            {
+                return NotFound();
+            }
+            if(categoryRepository.update(id, category))
+                return Ok();
+            else
+                return Content(HttpStatusCode.BadRequest, "Unexpected Error!");
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            CategoryRepository categoryRepository = new CategoryRepository();
+            if (!categoryRepository.keyExists(id))
+            {
+                return NotFound();
+            }
+            if (categoryRepository.delete(id))
+                return Ok();
+            else
+                return Content(HttpStatusCode.BadRequest, "Unexpected Error!");
         }
     }
 }
