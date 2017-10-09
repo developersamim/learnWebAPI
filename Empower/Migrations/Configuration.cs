@@ -1,5 +1,6 @@
 namespace Empower.Migrations
 {
+    using Empower.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -27,6 +28,12 @@ namespace Empower.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Category.AddOrUpdate(
+                c => c.id,
+                new Category() { id = 1, name = "Men" },
+                new Category() { id = 2, name = "Women" }
+                );
         }
     }
 }
