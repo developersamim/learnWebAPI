@@ -17,7 +17,8 @@ namespace Empower
         public AuthContext()
             : base("AuthContext")
         {
-            
+            //Disable initializer
+            Database.SetInitializer<AuthContext>(null);
         }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Category> Category { get; set; }
