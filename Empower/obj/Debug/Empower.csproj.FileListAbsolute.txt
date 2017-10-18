@@ -119,7 +119,6 @@ C:\projects\rough\learnWebAPI\Empower\bin\System.Web.WebPages.xml
 C:\projects\rough\learnWebAPI\Empower\bin\System.Web.WebPages.Deployment.xml
 C:\projects\rough\learnWebAPI\Empower\bin\System.Web.WebPages.Razor.xml
 C:\projects\rough\learnWebAPI\Empower\bin\System.Web.Http.WebHost.xml
-C:\projects\rough\learnWebAPI\Empower\obj\Debug\Empower.csprojResolveAssemblyReference.cache
 C:\projects\rough\learnWebAPI\Empower\obj\Debug\Empower.Migrations.InitialCreate.resources
 C:\projects\rough\learnWebAPI\Empower\obj\Debug\Empower.csproj.GenerateResource.Cache
 C:\projects\rough\learnWebAPI\Empower\obj\Debug\Empower.dll

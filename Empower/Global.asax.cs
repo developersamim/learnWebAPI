@@ -17,5 +17,14 @@ namespace Empower
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+            System.Diagnostics.Debug.WriteLine(exception);
+            //Response.Redirect("/Home/Error/");
+
+            Response.Redirect(String.Format("~/Error/{0}/?message={1}", "Error", exception.Message));
+        }
     }
 }
